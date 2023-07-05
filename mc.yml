@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mc
+spec:
+  containers:
+    - name: c0
+      image: alpine/socat
+      command: [ "/bin/sh", "-c", "/usr/bin/socat tcp-l:1234,fork exec:'echo c0'" ]
+    - name: c1
+      image: alpine/socat
+      command: [ "/bin/sh", "-c", "/usr/bin/socat tcp-l:1235,fork exec:'echo c1'" ]
